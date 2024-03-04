@@ -1,0 +1,837 @@
+/**?============================================================================== global  =============================================================*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    outline: 0;
+    appearance: none;
+
+}
+
+/**?============================================================================== global  =============================================================*/
+/**~============================================================================== fonts =============================================================*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+/**~============================================================================== fonts =============================================================*/
+/**!=============== dark theme variables============= */
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light)
+}
+
+/**!=============== dark theme variables============= */
+/**^==============================================================================root variables =============================================================*/
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #ffffff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+/**^==============================================================================root variables =============================================================*/
+html {
+    font-size: 14px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.88rem;
+    background: var(--color-background);
+    user-select: none;
+    overflow-x: hidden;
+    color: var(--color-dark);
+}
+
+a {
+    color: var(--color-dark);
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.8rem;
+}
+
+h2 {
+    font-weight: 800;
+    font-size: 1.4rem;
+}
+
+h3 {
+    font-size: 0.87rem;
+}
+
+h4 {
+    font-size: 0.8rem;
+}
+
+h5 {
+    font-size: 0.77rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.profile-photo {
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.text-muted {
+    color: var(--color-info-dark);
+
+}
+
+p {
+    color: var(--color-dark-variant);
+}
+
+b {
+    color: var(--color-dark);
+}
+
+.primary {
+    color: var(--color-primary);
+}
+
+.danger {
+    color: var(--color-danger);
+}
+
+.success {
+    color: var(--color-success);
+}
+
+.warning {
+    color: var(--color-warning);
+}
+
+/**!===============================================================left section ===================================================================*/
+.container {
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap: 1.8rem;
+    grid-template-columns: 13rem auto 20rem;
+}
+
+aside {
+    height: 100vh;
+
+
+}
+
+aside .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.4rem;
+
+
+}
+
+aside .top .logo {
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+    align-items: center;
+
+}
+
+aside .top .logo h2 {
+    padding: 0;
+    margin: 0;
+}
+
+aside .top .logo img {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+aside .top .close {
+    display: none;
+}
+
+aside .sidebar {
+
+    display: flex;
+    flex-direction: column;
+    height: 86vh;
+    position: relative;
+    top: 3rem;
+}
+
+aside h3 {
+    font-weight: 500;
+}
+
+aside .sidebar a {
+    display: flex;
+    align-items: center;
+    color: var(--color-info-dark);
+    margin-left: 2rem;
+    gap: 1rem;
+    position: relative;
+    height: 3.7rem;
+    transition: all 0.3s ease;
+}
+
+aside .sidebar a span {
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+}
+
+aside .sidebar a:last-child {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+}
+
+aside .sidebar a.active {
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    margin-left: 0;
+
+}
+
+aside .sidebar a.active::before {
+    content: '';
+    width: 6px;
+    height: 100%;
+    background-color: var(--color-primary);
+
+}
+
+aside .sidebar a.active span {
+    color: var(--color-primary);
+    margin-left: calc(1rem-6px);
+}
+
+aside .sidebar a:hover {
+    color: var(--color-primary);
+
+}
+
+aside .sidebar a:hover span {
+    margin-left: 1rem;
+}
+
+aside .sidebar a span.message-count {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+    padding: 6px 8px;
+    font-size: 11px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/**!===============================================================left section ===================================================================*/
+
+/**&===============================================================main section ===================================================================*/
+
+main {
+    margin-top: 1.4rem;
+}
+
+main .date {
+    display: inline-block;
+    background-color: var(--color-light);
+    border-radius: var(--border-radius-1);
+    margin-top: 1rem;
+    padding: 0.5rem 1.5rem;
+}
+
+main .date input[type='date'] {
+
+    background-color: transparent;
+    color: var(--color-dark);
+    border: none;
+}
+
+main .insights {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+main .insights>div {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+main .insights>div:hover {
+    box-shadow: none;
+}
+
+
+main .insights>div span {
+    background-color: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+
+main .insights>div.expences span {
+    background-color: var(--color-danger);
+}
+
+main .insights>div.income span {
+    background-color: var(--color-success);
+}
+
+
+main .insights>div .middle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main .insights h3 {
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+
+main .insights .progress {
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+    margin-left: 1.5rem;
+}
+
+main .insights svg {
+
+    width: 7rem;
+    height: 7rem
+}
+
+main .insights svg circle {
+
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+
+}
+
+main .insights .sales svg circle {
+
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+main .insights .expences svg circle {
+
+    stroke-dashoffset: 20;
+    stroke-dasharray: 80;
+}
+
+main .insights .income svg circle {
+    stroke-dashoffset: 35;
+    stroke-dasharray: 110;
+}
+
+main .insights .progress .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .insights small {
+    display: block;
+    margin-top: 1.5rem;
+}
+
+
+main .recent-orders {
+    margin-top: 1rem;
+}
+
+main .recent-orders h2 {
+    margin-bottom: 0.9rem;
+}
+
+main .recent-orders table {
+    background-color: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+main .recent-orders table:hover {
+    box-shadow: none;
+}
+
+main .recent-orders table {
+    color: var(--color-dark-variant);
+}
+
+main .recent-orders table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+
+}
+
+main .recent-orders table tbody tr:last-child td {
+    border: none;
+}
+
+main .recent-orders a {
+    display: block;
+    text-align: center;
+    margin: 1rem auto;
+    color: var(--color-primary);
+    font-size: 14px;
+}
+
+/**&===============================================================main section ===================================================================*/
+
+/**^===============================================================right section ===================================================================*/
+
+.right-section {
+    margin-top: 1.4rem;
+}
+
+
+.right-section .top {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.right-section .top button {
+    background-color: transparent;
+    border: none;
+    display: none;
+}
+
+.right-section .top .theme-switcher {
+    background-color: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.5rem;
+    width: 4.3rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+
+}
+
+.right-section .top .theme-switcher span {
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-section .top .theme-switcher span.active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--border-radius-1);
+}
+
+.right-section .top .profile {
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+
+
+}
+
+.right-section .recent-updates {
+    margin-top: 1.2rem;
+}
+
+.right-section .recent-updates h2 {
+    margin-bottom: 0.8rem;
+}
+
+.right-section .recent-updates .updates {
+    background-color: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+}
+
+.right-section .recent-updates .updates:hover {
+    box-shadow: none;
+}
+
+.right-section .recent-updates .updates .update {
+    display: grid;
+    grid-template-columns: 2.5rem auto;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.right-section .sales-analytics {
+    margin-top: 2rem;
+}
+
+.right-section .sales-analytics h2 {
+    margin-bottom: 0.8rem;
+}
+
+.right-section .sales-analytics .item {
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
+    padding: 1.4rem var(--card-padding);
+    border-radius: var(--border-radius-3);
+    box-shadow: var(--box-shadow);
+    transition: all 0.3s ease;
+
+}
+
+.right-section .sales-analytics .item:hover {
+    box-shadow: none;
+}
+
+
+.right-section .sales-analytics .item .right {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 0;
+    width: 100%;
+}
+
+.right-section .sales-analytics .item .icon {
+    padding: 0.6rem;
+    color: var(--color-white);
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    display: flex;
+}
+
+.right-section .sales-analytics .item.offline .icon {
+
+    background-color: var(--color-success);
+
+}
+
+.right-section .sales-analytics .item.customers .icon {
+
+    background-color: var(--color-danger);
+
+}
+
+.right-section .sales-analytics .add-product {
+    background-color: transparent;
+    border: 2px dashed var(--color-primary);
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-section .sales-analytics .add-product div {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.right-section .sales-analytics .add-product div h3 {
+    font-weight: 600;
+}
+
+
+/**^===============================================================right section ===================================================================*/
+
+
+/**==============footer==============================*/
+div.footer {
+    margin-top: 2rem;
+    background-color: var(--color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.6rem;
+}
+
+div.footer .footer-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 2rem;
+}
+
+div.footer .footer-img img {
+    width: 100%;
+}
+
+div.footer .footer-text {
+    font-size: 1.2rem;
+}
+
+/**==============footer==============================*/
+
+
+
+
+
+
+
+/**!=====================================================================Media Query =============================================================*/
+@media screen and (max-width:1200px) {
+    .container {
+        width: 94%;
+        grid-template-columns: 7rem auto 23rem;
+    }
+
+    aside .logo h2 {
+        display: none;
+
+    }
+
+    aside .sidebar h3 {
+        display: none;
+    }
+
+    aside .sidebar a {
+        width: 5.6rem;
+
+    }
+
+    aside .sidebar a:last-child {
+
+        position: relative;
+        margin-top: 1.8rem;
+
+    }
+
+    main .insights {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    main .recent-orders {
+        width: 94%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 2rem 0 0 8.8rem;
+    }
+
+    main .recent-orders h2 {
+        margin-left: 2rem;
+    }
+
+    main .recent-orders table {
+        width: 78vw;
+        margin-inline: 20px;
+    }
+
+    main .recent-orders a {
+        width: 70%;
+        text-align: center;
+        margin: 2rem auto;
+
+    }
+
+    main .recent-orders table tbody tr td:last-child,
+    main .recent-orders table tbody tr td:first-child {
+        display: none;
+    }
+
+
+
+}
+
+
+@media screen and (max-width:768px) {
+
+    .container {
+        width: 100%;
+        grid-template-columns: 1fr;
+
+    }
+
+    aside {
+        position: fixed;
+        left: -100%;
+        background-color: var(--color-white);
+        width: 18rem;
+        z-index: 99;
+        box-shadow: 1rem 3rem 4rem var(--color-light);
+        height: 100vh;
+        padding-right: var(--card-padding);
+        display: none;
+        animation: showMenu 300ms ease forwards;
+
+    }
+
+    @keyframes showMenu {
+        to {
+            left: 0;
+        }
+    }
+
+    aside .logo {
+        margin-left: 1rem;
+
+    }
+
+    aside .logo h2 {
+        display: inline;
+
+    }
+
+    aside .sidebar h3 {
+        display: inline;
+
+    }
+
+    aside .sidebar a {
+        width: 100%;
+        height: 3.4rem;
+
+    }
+
+    aside .sidebar a:last-child {
+        position: absolute;
+        bottom: 5rem;
+
+    }
+
+    aside .top .close {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    main {
+        margin-top: 8rem;
+        padding: 0 1rem;
+    }
+
+    main .recent-orders {
+        position: relative;
+        margin: 3rem 0 0 0;
+        width: 100%;
+    }
+
+    main .recent-orders table {
+        width: 100%;
+        margin: 0;
+    }
+
+    .right-section .top {
+        width: 94%;
+        margin: 0 auto 4rem;
+    }
+
+    .right-section .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0 0.8rem;
+        height: 4.5rem;
+        background-color: var(--color-white);
+        width: 100%;
+        margin: 0;
+        z-index: 3;
+        box-shadow: 0 1rem 1rem var(--color-light);
+
+    }
+
+    .right-section .top .theme-switcher {
+        width: 4.4rem;
+        position: absolute;
+        left: 66%;
+    }
+
+    .right-section .top .profile .info {
+        display: none;
+    }
+
+    .right-section .top .profile .profile-photo {
+        margin-right: 16px;
+    }
+
+    .right-section .top button {
+        display: inline-block;
+        background-color: transparent;
+        cursor: pointer;
+        color: var(--color-dark);
+        position: absolute;
+        left: 1rem;
+    }
+
+    .right-section .top button span {
+        font-size: 2.5rem;
+    }
+
+    .right-section .recent-updates {
+        width: 94%;
+        margin: 1rem auto;
+    }
+
+    .right-section .sales-analytics {
+        width: 94%;
+        margin: 1rem auto;
+    }
+
+
+}
+
+/**!=====================================================================Media Query =============================================================*/
